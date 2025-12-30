@@ -52,6 +52,10 @@ in
     programs.zsh.enable = true;
     users.users.${config.my.username}.shell = pkgs.zsh;
 
+    environment.variables = {
+      TUCKR_HOME = "/etc/nix-darwin";
+    };
+
     environment.systemPackages = with pkgs; [
       btop
       bun
@@ -60,14 +64,15 @@ in
       deno
       dust
       ffmpeg
-      fira-code
       git
       gnupg
+      nerd-fonts.fira-code
       nixd
       nixfmt-rfc-style
       nodejs_24
       stow
       tree
+      tuckr
       unzip
       wget
       zip
