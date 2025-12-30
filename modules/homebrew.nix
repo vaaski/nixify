@@ -31,6 +31,7 @@
       "bleunlock"
       "brave-browser"
       "connectmenow"
+      "darkmodebuddy"
       "dbeaver-community"
       "docker-desktop"
       "finicky"

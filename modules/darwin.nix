@@ -45,6 +45,11 @@ in
 
     primaryUser = config.my.username;
 
+    keyboard = {
+      enableKeyMapping = true;
+      remapCapsLockToEscape = true;
+    };
+
     defaults = {
       loginwindow = {
         LoginwindowText = host;
@@ -95,6 +100,22 @@ in
         "NSGlobalDomain" = {
           NSColorSimulateHardwareAccent = true;
           NSColorSimulatedHardwareEnclosureNumber = 5;
+        };
+        # use option+^ to "Move focus to next window" (german keyboard, works after re-login)
+        "com.apple.symbolichotkeys" = {
+          AppleSymbolicHotKeys = {
+            "27" = {
+              enabled = true;
+              value = {
+                parameters = [
+                  65535
+                  10
+                  1048576
+                ];
+                type = "standard";
+              };
+            };
+          };
         };
       };
 
