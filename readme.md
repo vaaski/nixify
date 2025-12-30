@@ -4,7 +4,11 @@ sets up my stuff just how i like it, especially the macs.
 
 ### structure
 
-- `dotfiles/`: used with `stow .`
+- `modules/`: config "layers"
+- `hosts/`: overrides for specific machines
+- `dotfiles/`: used with [tuckr](https://github.com/RaphGL/Tuckr)
+- `plist/`: 3rd party app configs that i couldn't figure out a nixy way to configure
+- `manual-config/`: 3rd party app configs that i couldn't figure out an automated way to configure
 
 ### setup
 
@@ -33,6 +37,9 @@ sudo chown $(id -nu):$(id -ng) /etc/nix-darwin
 cd /etc/nix-darwin
 
 tuckr set --only-files -fy \*
+
+chmod +x ./plist/apply.sh
+./plist/apply.sh
 ```
 
 ### manual steps
