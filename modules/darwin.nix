@@ -70,6 +70,10 @@ in {
         LoginwindowText = host;
       };
 
+      # ".GlobalPreferences" = {
+      #   "com.apple.mouse.scaling" = -1.0;
+      # };
+
       NSGlobalDomain = {
         NSWindowResizeTime = 0.05;
 
@@ -110,6 +114,12 @@ in {
       };
 
       CustomUserPreferences = {
+        "NSGlobalDomain" = {
+          NSColorSimulateHardwareAccent = true;
+          NSColorSimulatedHardwareEnclosureNumber = 5;
+          "com.apple.mouse.linear" = 1;
+          "com.apple.mouse.scaling" = 0.875;
+        };
         "com.apple.Spotlight" = {
           # hide spotlight menu bar item
           "NSStatusItem VisibleCC Item-0" = null;
@@ -125,10 +135,6 @@ in {
         "com.apple.desktopservices" = {
           DSDontWriteNetworkStores = true;
           DSDontWriteUSBStores = true;
-        };
-        "NSGlobalDomain" = {
-          NSColorSimulateHardwareAccent = true;
-          NSColorSimulatedHardwareEnclosureNumber = 5;
         };
         "com.apple.symbolichotkeys" = {
           AppleSymbolicHotKeys = {
