@@ -43,6 +43,7 @@
       "iterm2"
       "jordanbaird-ice@beta"
       "keepingyouawake"
+      "keyboardcleantool"
       "mullvad-vpn"
       "naps2"
       "obs"
