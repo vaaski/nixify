@@ -261,6 +261,9 @@ in {
         EnableTiledWindowMargins = false;
         StageManagerHideWidgets = true;
         StandardHideWidgets = true;
+        EnableTilingByEdgeDrag = false;
+        EnableTopTilingByEdgeDrag = false;
+        EnableTilingOptionAccelerator = false;
       };
 
       controlcenter = {
