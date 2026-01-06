@@ -43,7 +43,7 @@
       # sudo darwin-rebuild switch --flake ".#m3-pro"
       m3-pro = mkDarwin {
         system = "aarch64-darwin";
-        host = "m3-pro";
+        host = "T001849997";
       };
     };
   };

@@ -1,6 +1,8 @@
 {...}: {
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+  my.username = "A200007423";
+
   system.defaults.dock.persistent-apps = [
     "/System/Applications/Messages.app"
     "/Applications/Spark Desktop.app"

@@ -43,7 +43,7 @@ in {
   };
 
   config = {
-    my.username = "o";
+    my.username = lib.mkDefault "o";
 
     nix = {
       settings.experimental-features = "nix-command flakes";
