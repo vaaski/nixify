@@ -36,7 +36,7 @@ in {
     };
   };
 
-  networking = {
+  networking = lib.mkDefault {
     hostName = host;
     computerName = host;
     localHostName = host;
