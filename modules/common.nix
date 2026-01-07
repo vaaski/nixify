@@ -118,6 +118,7 @@ in {
       zip
 
       ytDlpAuto
+      nodePackages."@antfu/ni"
     ];
   };
 }
