@@ -112,8 +112,8 @@ in {
 
       CustomUserPreferences = {
         "NSGlobalDomain" = {
-          NSColorSimulateHardwareAccent = true;
-          NSColorSimulatedHardwareEnclosureNumber = 5;
+          NSColorSimulateHardwareAccent = lib.mkDefault true;
+          NSColorSimulatedHardwareEnclosureNumber = lib.mkDefault 5;
           "com.apple.mouse.linear" = 1;
           "com.apple.mouse.scaling" = 0.875;
         };

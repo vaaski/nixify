@@ -9,6 +9,12 @@
     localHostName = "T001849997";
   };
 
+  system.defaults.CustomUserPreferences."NSGlobalDomain" = {
+    NSColorSimulateHardwareAccent = null;
+    NSColorSimulatedHardwareEnclosureNumber = null;
+    AppleAccentColor = 6;
+  };
+
   system.defaults.dock.persistent-apps = [
     "/System/Applications/Messages.app"
     "/Applications/Spark Desktop.app"
