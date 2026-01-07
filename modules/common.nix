@@ -105,7 +105,6 @@ in {
       dust
       ffmpeg
       git
-      gnupg
       nerd-fonts.fira-code
       nixd
       nodejs_24
