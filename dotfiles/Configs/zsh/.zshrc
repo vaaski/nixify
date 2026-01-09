@@ -111,6 +111,8 @@ alias la='ll -A'    # list *all* files but better
 
 if [[ "$(uname -s)" == "Darwin" ]]; then
 	source "$HOME/.zshrc_darwin"
+else
+	source "$HOME/.zshrc_nixos"
 fi
 
 # --------------------------------------------------------------------------------------
