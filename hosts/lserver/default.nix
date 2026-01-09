@@ -13,6 +13,7 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   environment.systemPackages = with pkgs; [
+    caddy
     docker
     lm_sensors
     mdadm
