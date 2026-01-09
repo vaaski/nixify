@@ -33,6 +33,21 @@
           ./hosts/${host}/default.nix
         ];
       };
+
+    mkNixos = {
+      system,
+      host,
+    }:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit self host inputs;};
+        modules = [
+          ./modules/common.nix
+          ./modules/nixos.nix
+          home-manager.nixosModules.home-manager
+          ./hosts/${host}/default.nix
+        ];
+      };
   in {
     darwinConfigurations = {
       # sudo darwin-rebuild switch --flake ".#m2-air"
@@ -44,6 +59,14 @@
       m3-pro = mkDarwin {
         system = "aarch64-darwin";
         host = "m3-pro";
+      };
+    };
+
+    nixosConfigurations = {
+      # sudo nixos-rebuild switch --flake ".#lserver"
+      lserver = mkNixos {
+        system = "x86_64-linux";
+        host = "lserver";
       };
     };
   };

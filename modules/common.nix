@@ -5,8 +5,14 @@
   inputs,
   ...
 }: let
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
+  userHome =
+    if isDarwin
+    then "/Users/${config.my.username}"
+    else "/home/${config.my.username}";
+
   ytDlpUrl =
-    if pkgs.stdenv.hostPlatform.isDarwin
+    if isDarwin
     then "https://github.com/yt-dlp/yt-dlp-nightly-builds/releases/latest/download/yt-dlp_macos"
     else "https://github.com/yt-dlp/yt-dlp-nightly-builds/releases/latest/download/yt-dlp_linux";
 
@@ -59,7 +65,7 @@ in {
           enable = true;
           settings = {
             gpg.format = "ssh";
-            user.signingkey = "/Users/${config.my.username}/.ssh/id_ed25519.pub";
+            user.signingkey = "${userHome}/.ssh/id_ed25519.pub";
             commit.gpgsign = true;
             tag.gpgsign = true;
             user.name = "vaaski";
@@ -88,7 +94,10 @@ in {
     };
 
     environment.variables = {
-      TUCKR_HOME = "/etc/nix-darwin";
+      TUCKR_HOME =
+        if isDarwin
+        then "/etc/nix-darwin"
+        else "/etc/nixos";
     };
 
     fonts.packages = [
