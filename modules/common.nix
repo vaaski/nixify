@@ -70,6 +70,7 @@ in {
             tag.gpgsign = true;
             user.name = "vaaski";
             user.email = "admin@vaa.ski";
+            pull.rebase = true;
           };
         };
       };
