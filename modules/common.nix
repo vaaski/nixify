@@ -97,8 +97,8 @@ in {
     environment.variables = {
       TUCKR_HOME =
         if isDarwin
-        then "/etc/nix-darwin"
-        else "/etc/nixos";
+        then "/etc/nix-darwin/dotfiles"
+        else "/etc/nixos/dotfiles";
     };
 
     fonts.packages = [

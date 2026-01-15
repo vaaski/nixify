@@ -25,6 +25,7 @@
         inherit system;
         specialArgs = {inherit self host inputs;};
         modules = [
+          ./modules/tuckr.nix
           ./modules/common.nix
           ./modules/darwin.nix
           nix-homebrew.darwinModules.nix-homebrew
@@ -42,6 +43,7 @@
         inherit system;
         specialArgs = {inherit self host inputs;};
         modules = [
+          ./modules/tuckr.nix
           ./modules/common.nix
           ./modules/nixos.nix
           home-manager.nixosModules.home-manager
