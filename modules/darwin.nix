@@ -147,6 +147,30 @@ in {
                 type = "standard";
               };
             };
+
+            # disable ctrl+space input source switching
+            "60" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  32
+                  49
+                  262144
+                ];
+                type = "standard";
+              };
+            };
+            "61" = {
+              enabled = 0;
+              value = {
+                parameters = [
+                  32
+                  49
+                  786432
+                ];
+                type = "standard";
+              };
+            };
           };
         };
       };
