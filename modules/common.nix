@@ -87,6 +87,7 @@ in {
             user.name = config.my.git.userName;
             user.email = config.my.git.userEmail;
             pull.rebase = true;
+            rebase.autoStash = true;
           };
         };
       };
