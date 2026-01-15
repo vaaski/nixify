@@ -1,74 +1,59 @@
-{config, ...}: {
-  nix-homebrew = {
-    enable = true;
-    user = config.my.username;
-    enableRosetta = true;
-    autoMigrate = true;
+{
+  config,
+  lib,
+  ...
+}: {
+  options.my.homebrew = {
+    taps = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      description = "Homebrew taps to install.";
+      default = [];
+    };
+    brews = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      description = "Homebrew packages to install.";
+      default = [];
+    };
+    casks = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      description = "Homebrew casks to install.";
+      default = [];
+    };
+    masApps = lib.mkOption {
+      type = lib.types.attrsOf lib.types.int;
+      description = "Apps from the Mac App Store to install.";
+      default = {};
+    };
   };
 
-  homebrew = {
-    enable = true;
-    caskArgs.no_quarantine = true;
-    global = {
-      autoUpdate = false;
+  config = {
+    nix-homebrew = {
+      enable = true;
+      user = config.my.username;
+      enableRosetta = true;
+      autoMigrate = true;
     };
-    onActivation = {
-      cleanup = "zap";
-      upgrade = false;
-    };
-    brews = [
-      "mas"
-    ];
-    taps = [
-      "mhaeuser/mhaeuser" # battery toolkit
-    ];
-    casks = [
-      "affinity"
-      "android-platform-tools"
-      "audacity"
-      "balenaetcher"
-      "bambu-studio"
-      "battery-toolkit"
-      "bentobox"
-      "betterdisplay"
-      "bettertouchtool"
-      "blender"
-      "bleunlock"
-      "connectmenow"
-      "darkmodebuddy"
-      "dbeaver-community"
-      "displaylink"
-      "docker-desktop"
-      "finicky"
-      "helium-browser"
-      "hoppscotch"
-      "iina"
-      "iterm2"
-      "jordanbaird-ice@beta"
-      "keepingyouawake"
-      "keyboardcleantool"
-      "mullvad-vpn"
-      "naps2"
-      "obs"
-      "obsidian"
-      "prismlauncher"
-      "raspberry-pi-imager"
-      "raycast"
-      "readdle-spark"
-      "rectangle-pro"
-      "scroll-reverser"
-      "spotify"
-      "stats"
-      "telegram-desktop"
-      "the-unarchiver"
-      "utm"
-      "vesktop"
-      "visual-studio-code"
-      "whatsapp"
-    ];
-    masApps = {
-      Xcode = 497799835;
-      WireGuard = 1451685025;
+
+    homebrew = {
+      enable = true;
+      caskArgs.no_quarantine = true;
+      global = {
+        autoUpdate = false;
+      };
+      onActivation = {
+        cleanup = "zap";
+        upgrade = false;
+      };
+      brews = lib.mkBefore (["mas"] ++ config.my.homebrew.brews);
+      taps = config.my.homebrew.taps;
+      casks = config.my.homebrew.casks;
+      masApps = lib.mkMerge [
+        {
+          Xcode = 497799835;
+          WireGuard = 1451685025;
+        }
+        config.my.homebrew.masApps
+      ];
     };
   };
 }

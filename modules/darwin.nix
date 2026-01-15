@@ -198,27 +198,7 @@ in {
         wvous-bl-corner = 5;
         wvous-br-corner = 1;
 
-        persistent-apps = lib.mkDefault [
-          "/System/Applications/Messages.app"
-          "/Applications/Spark Desktop.app"
-          "/System/Applications/Photos.app"
-          "/System/Applications/Notes.app"
-          "/System/Applications/FaceTime.app"
-          "/System/Applications/Reminders.app"
-          "/System/Applications/Home.app"
-          "/System/Applications/System Settings.app"
-          "/Applications/Helium.app"
-          "/Applications/Visual Studio Code.app"
-          "/Applications/iTerm.app"
-          "/Applications/Hoppscotch.app"
-          "/Applications/Obsidian.app"
-          "/Applications/WhatsApp.app"
-          "/Applications/Telegram Desktop.app"
-          "/Applications/Spotify.app"
-          "/Applications/Xcode.app"
-          "/Applications/UTM.app"
-          "/Applications/BambuStudio.app"
-        ];
+        persistent-apps = lib.mkDefault [];
         persistent-others = [
           {
             folder = {
