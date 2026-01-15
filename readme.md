@@ -1,6 +1,5 @@
-# nixify
-
-sets up my stuff just how i like it, especially the macs.
+![NIX CONF](./manual-config/cover.png)
+shared fentsoft nix config. _why didn't they just get another cup..._ 😔✊
 
 ### structure
 
@@ -9,6 +8,7 @@ sets up my stuff just how i like it, especially the macs.
 - `dotfiles/`: used with [tuckr](https://github.com/RaphGL/Tuckr)
 - `plist/`: 3rd party app configs that i couldn't figure out a nixy way to configure
 - `manual-config/`: 3rd party app configs that i couldn't figure out an automated way to configure
+- `guys/`: just some guys in a folder nothing weird
 
 ### setup
 
@@ -23,7 +23,7 @@ curl -sSf -L https://install.lix.systems/lix | sh -s -- install
 
 ```sh
 sudo mkdir -p /etc/nix-darwin
-sudo chown $(id -nu):$(id -ng) /etc/nix-darwin
+sudo chown -R $(id -nu):$(id -ng) /etc/nix-darwin
 cd /etc/nix-darwin
 
 nix flake init -t nix-darwin/master
