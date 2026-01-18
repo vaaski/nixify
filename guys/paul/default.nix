@@ -19,6 +19,7 @@
         # todo
       ];
     }
+
     // lib.optionalAttrs (pkgs.stdenv.hostPlatform.isDarwin) {
       homebrew = {
         taps = [
@@ -26,22 +27,23 @@
           "nikitabobko/aerospace" # aerospace app
         ];
         casks = [
-          "audacity"
           "aerospace"
+          "audacity"
           "bambu-studio"
           "battery-toolkit"
           "betterdisplay"
           "blender"
+          "codex"
           "dbeaver-community"
+          "discord"
           "displaylink"
           "docker-desktop"
-          "discord"
           "finicky"
-          "zen"
           "hoppscotch"
           "iterm2"
           "jordanbaird-ice@beta"
           "keepingyouawake"
+          "leader-key"
           "mullvad-vpn"
           "obs"
           "obsidian"
@@ -57,6 +59,7 @@
           "utm"
           "visual-studio-code"
           "vlc"
+          "zen"
         ];
       };
     };
