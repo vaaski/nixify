@@ -11,7 +11,27 @@
     settings.PermitRootLogin = "no";
   };
 
-  virtualisation.docker.enable = true; # needed for docker
+  virtualisation.docker = {
+    enable = true;
+
+    daemon.settings = {
+      "bip" = "10.255.0.1/24";
+      "default-address-pools" = [
+        {
+          "base" = "10.10.0.0/16";
+          "size" = 24;
+        }
+        {
+          "base" = "10.11.0.0/16";
+          "size" = 24;
+        }
+        {
+          "base" = "10.12.0.0/16";
+          "size" = 24;
+        }
+      ];
+    };
+  };
   programs.nix-ld.enable = true; # needed for vscode server
   security.sudo.wheelNeedsPassword = true; # passwordless sudo
   networking.firewall.enable = false;
