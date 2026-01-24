@@ -55,3 +55,16 @@ defaultbrowser finicky # i have an activation script for this but last time it d
   - require password immediately
   - disable show user name and photo
 - turn off optimized charging and display dimming on battery `system settings > battery`
+
+### if the keyboard is fucked
+
+something something `ansi` layout instead of `iso`, `^` and `<` are swapped.
+sometimes macos runs the keyboard setup for logitech mouse and then ignores the keychron keyboard.
+
+try removing the keyboard type plist, reboot and run the setup again.
+
+```sh
+sudo rm -fr /Library/Preferences/com.apple.keyboardtype.plist
+```
+
+or set the correct type `41` instead of `43`, maybe [automate it in the config](https://github.com/pinnacol/macadmin/blob/609c8a21ac7558d896c59b5feaa75f11243ab4d1/scripts/DefineKeyboards/DefineKeyboards.sh) sometime.
